@@ -1,4 +1,6 @@
+import java.io.IOException;
 import java.net.DatagramPacket;
+import java.net.DatagramSocket;
 
 /**
  * 
@@ -9,17 +11,35 @@ import java.net.DatagramPacket;
  *
  */
 public class CS425Network implements CS425NetworkInterface {
+	
+	private DatagramSocket socket;
 
+	public CS425Network(){
+		
+	}
+	
 	@Override
 	public int send(DatagramPacket dg) {
-		// TODO Auto-generated method stub
-		return 0;
+		int retval = 0;
+		try {
+			socket.send(dg);
+		} catch (IOException e) {
+			e.printStackTrace();
+			retval = -1;
+		}
+		return retval;
 	}
 
 	@Override
 	public int recv(DatagramPacket dg) {
-		// TODO Auto-generated method stub
-		return 0;
+		int retval = 0;
+		try {
+			socket.receive(dg);
+		} catch (IOException e) {
+			e.printStackTrace();
+			retval = -1;
+		}
+		return retval;
 	}
 
 }
