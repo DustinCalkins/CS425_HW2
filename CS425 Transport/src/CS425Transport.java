@@ -10,7 +10,7 @@ import javax.swing.Timer;
  * @author mmcginnis
  *
  */
-public class CS425Tranport implements CS425TransportInterface, ActionListener {
+public class CS425Transport implements CS425TransportInterface, ActionListener {
 	
 	private CS425NetworkInterface network;
 	private Timer timer;
@@ -18,7 +18,7 @@ public class CS425Tranport implements CS425TransportInterface, ActionListener {
 	private int PORT = 8080;
 	private int MAX = 1024;
 	
-	public CS425Tranport(CS425NetworkInterface network){
+	public CS425Transport(CS425NetworkInterface network){
 		this.network = network;
 		timer = new Timer(DELAY, this);
 	}
