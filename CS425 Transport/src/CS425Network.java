@@ -11,13 +11,13 @@ import java.net.DatagramSocket;
  *
  */
 public class CS425Network implements CS425NetworkInterface {
-	
+
 	private DatagramSocket socket;
 
-	public CS425Network(){
-		
+	public CS425Network() {
+
 	}
-	
+
 	@Override
 	public int send(DatagramPacket dg) {
 		int retval = 0;
