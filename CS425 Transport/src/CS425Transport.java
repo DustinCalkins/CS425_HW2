@@ -68,15 +68,17 @@ public class CS425Transport implements CS425TransportInterface, ActionListener {
 
 		@Override
 		public int send(String s) {
-			byte[] b = makeHeaderSendPackets(s);
-			DatagramPacket dp = new DatagramPacket(s.getBytes(), s.length(),
-					ip, hashValue);
-			if (network.send(dp) < 0)
-				return -1;
-			return b.length;
+			return makeHeaderSendPackets(s);
 		}
 
-		private byte[] makeHeaderSendPackets(String s) {
+		/* 
+		 *Private method to create and send all packets from a String s
+		 *Creates the header shown above and places headers on all packets.
+		 *Sends all packets and adds their size to the a return int.
+		 * @param s the string to send 
+		 * @return the length of String s or -1 if something goes wrong
+		 */
+		private int makeHeaderSendPackets(String s) {
 			byte[] hashBytes = BE_IntToByte(hashValue);
 			int length = s.length(); // 32 bits for second row, length of string
 			int l = length;
@@ -97,7 +99,7 @@ public class CS425Transport implements CS425TransportInterface, ActionListener {
 			// Send Single Remaining Packet
 			// Whatever is left of string send that.
 
-			return null;
+			return -1;
 		}
 
 		private String readHeader(byte[] buf) {
@@ -106,10 +108,9 @@ public class CS425Transport implements CS425TransportInterface, ActionListener {
 				headerBytes[i] = buf[i];
 			int tmpHash = BE_HashByteToHash(headerBytes);
 			if (tmpHash != hashValue) // Packet has been corrupted.. or
-										// something don't bother.
-				return null;
-
-			// read the rest of the header
+						return null;				// something is wrong don't bother.
+				
+			// read the rest of the header (length and last ack) 
 
 			// while more packets build string
 

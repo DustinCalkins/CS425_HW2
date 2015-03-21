@@ -1,0 +1,25 @@
+*******************************************************************************
+* HW2 : Build Your Own Transport
+* Class:   CS 425-001
+* Date:    March 20, 2015 
+* Names:    Mitchell McGinnis and Dustin Calkins
+********************************************************************************
+
+OVERVIEW:
+
+ Thank you! if there's anything I can do to help I will but I leave tomorrow at 6AM and won't be back till after.
+ I'll try my best or make it up on the next one. 
+
+
+INCLUDED FILES:
+
+ 
+
+
+PROGRAM DESIGN:
+
+Mitch: Designed and implemented most of the Endpoint Transport Protocol, ETP. Established 
+framework for transport and network. Created Network Class.  
+
+
+PROGRAM DEVELOPMENT AND TESTING DISCUSSION:
